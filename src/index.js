@@ -1,11 +1,12 @@
 const lista = document.querySelector("ul");
 const form = document.querySelector(".add");
 const additem = (item, id) => {
-  let time = item.created_at.toDate();
+  const when = dateFns.distanceInWordsToNow(item.created_at.toDate(), { addSuffix: true });
+  // let time = item.created_at.toDate();
   let html = `
   <li data-id="${id}">
   <div>${item.title}</div>
-  <div>${time}</div>
+  <div>${when}</div>
   
   <i class="far fa-trash-alt delete"></i>
   </li>
