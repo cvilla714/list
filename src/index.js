@@ -1,11 +1,12 @@
 const lista = document.querySelector("ul");
 const form = document.querySelector(".add");
-const additem = (item) => {
+const additem = (item, id) => {
   let time = item.created_at.toDate();
   let html = `
-  <li>
+  <li data-id="${id}">
   <div>${item.title}</div>
   <div>${time}</div>
+  
   <i class="far fa-trash-alt delete"></i>
   </li>
   `;
@@ -13,19 +14,47 @@ const additem = (item) => {
   lista.innerHTML += html;
 };
 
-db.collection("default-list")
-  .get()
-  .then((snapshot) => {
-    snapshot.docs.forEach((item) => {
-      console.log(item.data());
-      // console.log(item.data());
-      additem(item.data());
-    });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+//get documents
+// db.collection("default-list")
+// .get()
+// .then((snapshot) => {
+// snapshot.docs.forEach((item) => {
+// console.log(item.id);
+// console.log(item.data());
+//
+// additem(item.data(), item.id);
+// });
+// })
+// .catch((err) => {
+// console.log(err);
+// });
 
+//real time event listners to the databse
+//to add and delete elements from the webbrowser
+db.collection("default-list").onSnapshot((snapshot) => {
+  snapshot.docChanges().forEach((change) => {
+    // console.log(change);
+    const doc = change.doc;
+    // console.log(doc);
+    if (change.type === "added") {
+      additem(doc.data(), doc.id);
+    } else if (change.type === "removed") {
+      deleteitem(doc.id);
+    }
+  });
+});
+
+//delete document
+const deleteitem = (id) => {
+  const totalitems = document.querySelectorAll("li");
+  totalitems.forEach((itm) => {
+    if (itm.getAttribute("data-id") === id) {
+      itm.remove();
+    }
+  });
+};
+
+//add documents to the database
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -42,6 +71,21 @@ form.addEventListener("submit", (e) => {
     .catch((err) => {
       console.log(err);
     });
+});
+
+//deleting data from the database
+lista.addEventListener("click", (e) => {
+  console.log(e);
+  if (e.target.classList.contains("delete")) {
+    const id = e.target.parentElement.getAttribute("data-id");
+    console.log(id);
+    db.collection("default-list")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("item deleted");
+      });
+  }
 });
 
 const addform = document.querySelector(".add");
@@ -66,11 +110,11 @@ const generatetemplate = (todo) => {
 // }
 // });
 
-list.addEventListener("click", (event) => {
-  if (event.target.classList.contains("delete")) {
-    event.target.parentElement.remove();
-  }
-});
+// list.addEventListener("click", (event) => {
+// if (event.target.classList.contains("delete")) {
+// event.target.parentElement.remove();
+// }
+// });
 
 const filterthetodolist = (term) => {
   Array.from(list.children)
