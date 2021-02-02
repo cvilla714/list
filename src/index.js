@@ -4,10 +4,9 @@ const additem = (item, id) => {
   const when = dateFns.distanceInWordsToNow(item.created_at.toDate(), { addSuffix: true });
   // let time = item.created_at.toDate();
   let html = `
-  <li data-id="${id}">
+  <li data-id="${id}" class="list-group-item d-flex justify-content-between align-items-center">
   <div>${item.title}</div>
-  <div>${when}</div>
-  
+  <div>${when}</div>  
   <i class="far fa-trash-alt delete"></i>
   </li>
   `;
@@ -72,6 +71,7 @@ form.addEventListener("submit", (e) => {
     .catch((err) => {
       console.log(err);
     });
+  form.reset();
 });
 
 //deleting data from the database
