@@ -1,4 +1,6 @@
 const lista = document.querySelector("ul");
+const list = document.querySelector(".todos");
+const search = document.querySelector(".search input");
 const form = document.querySelector(".add");
 const additem = (item, id) => {
   const when = dateFns.distanceInWordsToNow(item.created_at.toDate(), { addSuffix: true });
@@ -88,18 +90,6 @@ lista.addEventListener("click", (e) => {
       });
   }
 });
-
-const addform = document.querySelector(".add");
-const list = document.querySelector(".todos");
-const search = document.querySelector(".search input");
-const generatetemplate = (todo) => {
-  const html = `
-<lit class="list-group-item d-flex justify-content-between align-items-center">
-<span>${todo}</span>
-<i class="far fa-trash-alt delete"></i>
-</li>`;
-  list.innerHTML += html;
-};
 
 // addform.addEventListener("submit", (event) => {
 // event.preventDefault();
