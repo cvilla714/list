@@ -5,6 +5,7 @@ import "./style.scss";
 
 import { foo } from "./date";
 foo();
+// const place = document.querySelector(".addingproject");
 const lista = document.querySelector("ul");
 const list = document.querySelector(".todos");
 const search = document.querySelector(".search input");
@@ -23,6 +24,21 @@ const additem = (item, id) => {
   lista.innerHTML += html;
 };
 
+const addtheproject = (item, id) => {
+  const when = dateFns.distanceInWordsToNow(item.created_at.toDate(), { addSuffix: true });
+  // let time = item.created_at.toDate();
+  let html = `
+  <li data-id="${id}" class="list-group-item d-flex justify-content-between align-items-center">
+  <div>${item.title}</div>
+  <div>${when}</div>  
+  <i class="far fa-trash-alt delete"></i>
+  </li>
+  `;
+  // console.log(html);
+  // lista.innerHTML += html;
+  place.innerHTML += html;
+};
+
 //get documents
 // db.collection("default-list")
 // .get()
@@ -37,6 +53,20 @@ const additem = (item, id) => {
 // .catch((err) => {
 // console.log(err);
 // });
+
+db.collection("default-projects")
+  .get()
+  .then((snapshot) => {
+    snapshot.docs.forEach((item) => {
+      console.log(item.id);
+      console.log(item.data());
+
+      addtheproject(item.data(), item.id);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 //real time event listners to the databse
 //to add and delete elements from the webbrowser
