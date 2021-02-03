@@ -1,5 +1,7 @@
 // import "../dist/css/style.css";
-// import "./style.scss";
+import { Tooltip, Toast, Popover } from 'bootstrap';
+import "./style.scss";
+
 import { foo } from "./date";
 foo();
 const lista = document.querySelector("ul");
