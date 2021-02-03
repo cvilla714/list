@@ -1,3 +1,6 @@
+import "./style.scss";
+import { foo } from "./date";
+foo();
 const lista = document.querySelector("ul");
 const list = document.querySelector(".todos");
 const search = document.querySelector(".search input");
@@ -35,9 +38,9 @@ const additem = (item, id) => {
 //to add and delete elements from the webbrowser
 db.collection("default-list").onSnapshot((snapshot) => {
   snapshot.docChanges().forEach((change) => {
-    // console.log(change);
+    console.log(change);
     const doc = change.doc;
-    // console.log(doc);
+    console.log(doc);
     if (change.type === "added") {
       additem(doc.data(), doc.id);
     } else if (change.type === "removed") {

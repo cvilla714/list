@@ -1,3 +1,5 @@
-$(function () {
-  $("#datepicker").datepicker();
-});
+export function foo() {
+  $(function () {
+    $("#datepicker").datepicker();
+  });
+}
