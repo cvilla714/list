@@ -9,10 +9,10 @@ module.exports = Project;
 
 function projectCard(title) {
   const column = document.createElement('div');
-  column.className = 'col-6 mt-4';
+  column.className = 'col-12 mt-2';
   const card = document.createElement('div');
   const cardHeader = document.createElement('div');
-  const cardTitle = document.createElement('h5');
+  const cardTitle = document.createElement('h6');
   const todoList = document.createElement('ul');
 
   card.className = 'card';
@@ -46,9 +46,9 @@ function projectForm() {
   const div = document.createElement('div');
 
   heading.textContent = 'New Project';
-  heading.className = 'w-75 mx-auto d-block';
+  heading.className = 'w-50 mx-auto d-block';
 
-  name.className = 'form-control mb-3 w-75 mx-auto d-block';
+  name.className = 'form-control mb-3 w-50 mx-auto d-block b-light';
   name.setAttribute('id', 'projectName');
   name.setAttribute('type', 'text');
 

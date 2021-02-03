@@ -28,14 +28,13 @@ class Todo {
 module.exports = Todo;
 
 function todoForm() {
+  const projectSelection = document.createElement('select');
   const form = document.createElement('form');
   const title = document.createElement('input');
   const desc = document.createElement('input');
   const date = document.createElement('input');
   const priority = document.createElement('select');
-  const projectSelection = document.createElement('select');
-  const notes = document.createElement('input');
-  const heading = document.createElement('h5');
+  const heading = document.createElement('h4');
   const button = document.createElement('button');
   const modalBg = document.createElement('div');
   const modalMain = document.createElement('div');
@@ -45,17 +44,17 @@ function todoForm() {
   heading.textContent = 'New To Do';
   heading.className = 'w-75 mx-auto d-block';
 
-  title.className = 'form-control mb-3 w-75 mx-auto d-block';
+  title.className = 'form-control mb-3 w-50 mx-auto d-block';
   title.setAttribute('id', 'todoTitle');
   title.setAttribute('type', 'text');
   title.setAttribute('placeholder', 'Title');
 
-  desc.className = 'form-control mb-3 w-75 mx-auto d-block';
+  desc.className = 'form-control mb-3 w-50 mx-auto d-block';
   desc.setAttribute('id', 'todoDesc');
   desc.setAttribute('type', 'text');
   desc.setAttribute('placeholder', 'Description');
 
-  date.className = 'form-control mb-3 w-75 mx-auto d-block';
+  date.className = 'form-control mb-3 w-50 mx-auto d-block';
   date.setAttribute('type', 'date');
   date.setAttribute('id', 'todoDate');
   date.setAttribute('min', format(new Date(), 'yyyy-MM-dd'));
@@ -68,13 +67,8 @@ function todoForm() {
     op.text = option;
     priority.add(op);
   });
-  priority.className = 'form-select mb-3 w-75 mx-auto d-block';
+  priority.className = 'form-select mb-3 w-50 mx-auto d-block';
   priority.setAttribute('id', 'todoPriority');
-
-  notes.className = 'form-control mb-3 w-75 mx-auto d-block';
-  notes.setAttribute('id', 'todoNotes');
-  notes.setAttribute('type', 'text');
-  notes.setAttribute('placeholder', 'Notes');
 
   button.textContent = 'Create Todo';
   button.className = 'btn btn-primary mx-auto d-block';
@@ -89,17 +83,16 @@ function todoForm() {
       projectSelection.add(proj);
     });
   }
-  projectSelection.className = 'form-select mb-3 w-75 mx-auto d-block';
+  projectSelection.className = 'form-select mb-3 w-50 mx-auto d-block';
   projectSelection.setAttribute('id', 'todoProjectSelection');
 
   form.append(
+    projectSelection,
     heading,
     title,
     desc,
     date,
     priority,
-    notes,
-    projectSelection,
     button,
   );
 
