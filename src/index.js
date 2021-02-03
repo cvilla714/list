@@ -1,4 +1,5 @@
-import "./style.scss";
+// import "../dist/css/style.css";
+// import "./style.scss";
 import { foo } from "./date";
 foo();
 const lista = document.querySelector("ul");

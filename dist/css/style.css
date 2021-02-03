@@ -20,3 +20,8 @@ input[type="text"]:focus {
 .filtered {
   display: none !important;
 }
+
+.modal-content {
+  width: 45.75vw;
+  height: 53.25vh;
+}
