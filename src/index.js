@@ -15,7 +15,7 @@ const additem = (item, id) => {
   let html = `
   <li data-id="${id}" class="list-group-item d-flex justify-content-between align-items-center">
   <div>${item.title}</div>
-  <div>${when}</div>  
+  <div>${when}</div> 
   <i class="far fa-trash-alt delete"></i>
   </li>
   `;
@@ -66,21 +66,36 @@ const deleteitem = (id) => {
 //add documents to the database
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  // console.log(recipe.value);
+  // const entrada = {
+  // title: form.recipe.value.trim(),
+  // created_at: firebase.firestore.Timestamp.fromDate(now),
+  // };
+  // console.log(entrada);
+  // if (entrada.title.length == "") {
+  // console.log("no item added");
+  // } else {
+  // additem(entrada);
+  // }
 
   const now = new Date();
   const recipe = {
-    title: form.recipe.value,
+    title: form.recipe.value.trim(),
     created_at: firebase.firestore.Timestamp.fromDate(now),
   };
-  db.collection("default-list")
-    .add(recipe)
-    .then(() => {
-      console.log("item added");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  form.reset();
+  if (recipe.title.length == "") {
+    console.log("no item added");
+  } else {
+    db.collection("default-list")
+      .add(recipe)
+      .then(() => {
+        console.log("item added");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    form.reset();
+  }
 });
 
 //deleting data from the database
