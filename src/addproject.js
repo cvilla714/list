@@ -1,17 +1,17 @@
 // const lista = document.querySelector(".projects");
-const project = document.querySelector('.btn-success');
-const place = document.querySelector('.projectos');
-const projectform = document.querySelector('.addproject');
+const project = document.querySelector(".btn-success");
+const place = document.querySelector(".projectos");
+const projectform = document.querySelector(".addproject");
 
 // get the correct content from the button
-project.addEventListener('click', (e) => {
+project.addEventListener("click", (e) => {
   console.log(e);
-  if (e.target.classList.contains('btn-success')) {
-    console.log('you are here');
+  if (e.target.classList.contains("btn-success")) {
+    console.log("you are here");
   }
 });
 
-const data = document.querySelector('.addproject');
+const data = document.querySelector(".addproject");
 
 // adding the projects to the dom
 // and getting the input values from the form
@@ -28,15 +28,15 @@ const data = document.querySelector('.addproject');
 // });
 
 // get the button action to close
-const close = document.querySelector('.btn-close');
-close.addEventListener('click', (e) => {
+const close = document.querySelector(".btn-close");
+close.addEventListener("click", (e) => {
   console.log(e);
 });
 
-const including = document.querySelector('.include');
-including.addEventListener('click', (e) => {
+const including = document.querySelector(".include");
+including.addEventListener("click", (e) => {
   console.log(e);
-  document.querySelector('.btn-close').click();
+  document.querySelector(".btn-close").click();
 });
 
 const addtheproject = (item, id) => {
@@ -70,14 +70,14 @@ const addtheproject = (item, id) => {
 
 // real time event listners to the databse
 // to add and delete elements from the webbrowser
-db.collection('default-projects').onSnapshot((snapshot) => {
+db.collection("default-projects").onSnapshot((snapshot) => {
   snapshot.docChanges().forEach((change) => {
     // console.log(change);
     const { doc } = change;
     // console.log(doc);
-    if (change.type === 'added') {
+    if (change.type === "added") {
       addtheproject(doc.data(), doc.id);
-    } else if (change.type === 'removed') {
+    } else if (change.type === "removed") {
       deleteitem(doc.id);
     }
   });
@@ -99,16 +99,16 @@ db.collection('default-projects').onSnapshot((snapshot) => {
 
 // delete document from the browser
 const deleteitem = (id) => {
-  const totalitems = document.querySelectorAll('li');
+  const totalitems = document.querySelectorAll("li");
   totalitems.forEach((itm) => {
-    if (itm.getAttribute('data-id') === id) {
+    if (itm.getAttribute("data-id") === id) {
       itm.remove();
     }
   });
 };
 
 // add documents to the database
-projectform.addEventListener('submit', (e) => {
+projectform.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const now = new Date();
@@ -116,33 +116,33 @@ projectform.addEventListener('submit', (e) => {
     title: projectform.addtheproject.value.trim(),
     created_at: firebase.firestore.Timestamp.fromDate(now),
   };
-  if (addtheproject.title.length == '') {
-    console.log('no projects added');
+  if (addtheproject.title.length == "") {
+    console.log("no projects added");
   } else {
-    db.collection('default-projects')
+    db.collection("default-projects")
       .add(addtheproject)
       .then(() => {
-        console.log('item added');
+        console.log("item added");
       })
       .catch((err) => {
         console.log(err);
       });
     projectform.reset();
-    document.querySelector('.btn-close').click();
+    document.querySelector(".btn-close").click();
   }
 });
 
 // deleting data from the database
-place.addEventListener('click', (e) => {
+place.addEventListener("click", (e) => {
   console.log(e);
-  if (e.target.classList.contains('delete')) {
-    const id = e.target.parentElement.getAttribute('data-id');
+  if (e.target.classList.contains("delete")) {
+    const id = e.target.parentElement.getAttribute("data-id");
     console.log(id);
-    db.collection('default-projects')
+    db.collection("default-projects")
       .doc(id)
       .delete()
       .then(() => {
-        console.log('item deleted');
+        console.log("item deleted");
       });
   }
 });
