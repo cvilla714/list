@@ -113,19 +113,23 @@ projectform.addEventListener("submit", (e) => {
 
   const now = new Date();
   const addtheproject = {
-    title: projectform.addtheproject.value,
+    title: projectform.addtheproject.value.trim(),
     created_at: firebase.firestore.Timestamp.fromDate(now),
   };
-  db.collection("default-projects")
-    .add(addtheproject)
-    .then(() => {
-      console.log("item added");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  projectform.reset();
-  document.querySelector(".btn-close").click();
+  if (addtheproject.title.length == "") {
+    console.log("no projects added");
+  } else {
+    db.collection("default-projects")
+      .add(addtheproject)
+      .then(() => {
+        console.log("item added");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    projectform.reset();
+    document.querySelector(".btn-close").click();
+  }
 });
 
 //deleting data from the database
