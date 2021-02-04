@@ -4,7 +4,7 @@ import "./style.scss";
 
 import { foo } from "./date";
 foo();
-
+import "./addlist";
 // const lista = document.querySelector("ul");
 const list = document.querySelector(".todos");
 const search = document.querySelector(".search input");
