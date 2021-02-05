@@ -1,5 +1,3 @@
-// const lista = document.querySelector(".projects");
-const list = document.querySelector(".todos");
 const project = document.querySelector(".btn-success");
 const place = document.querySelector(".projectos");
 const projectform = document.querySelector(".addproject");
@@ -14,29 +12,9 @@ project.addEventListener("click", (e) => {
 
 const data = document.querySelector(".addproject");
 
-// adding the projects to the dom
-// and getting the input values from the form
-// data.addEventListener("submit", (e) => {
-// e.preventDefault();
-// console.log(e);
-// console.log(addtheproject.value);
-// const place = document.querySelector(".addingproject");
-// let glass = addtheproject.value;
-// const mas = document.createElement("li");
-// mas.textContent = glass;
-// place.append(mas);
-// document.querySelector(".btn-close").click(); //this one automatically closes the modal
-// });
-
-// get the button action to close
-// const close = document.querySelector(".btn-close");
-// close.addEventListener("click", (e) => {
-// console.log(e);
-// });
-
 const including = document.querySelector(".include");
 including.addEventListener("click", (e) => {
-  console.log(e);
+  // console.log(e);
   document.querySelector(".btn-close").click();
 });
 
@@ -46,6 +24,10 @@ const addtheproject = (item, id) => {
   const html = `
   <li data-id="${id}" class="list-group-item d-flex justify-content-between align-items-center">
   <div>${item.title}</div>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Your Event
+  </button>
+  <div class="${id}"></div>
   <i class="far fa-trash-alt delete"></i>
   </li>
   `;
@@ -53,21 +35,6 @@ const addtheproject = (item, id) => {
   // lista.innerHTML += html;
   place.innerHTML += html;
 };
-
-// this is the one time snaption of the database
-// db.collection("default-projects")
-// .get()
-// .then((snapshot) => {
-// snapshot.docs.forEach((item) => {
-// console.log(item.id);
-// console.log(item.data());
-//
-// addtheproject(item.data(), item.id);
-// });
-// })
-// .catch((err) => {
-// console.log(err);
-// });
 
 // real time event listners to the databse
 // to add and delete elements from the webbrowser
@@ -83,20 +50,6 @@ db.collection("default-projects").onSnapshot((snapshot) => {
     }
   });
 });
-
-// db.collection("default-projects")
-// .get()
-// .then((snapshot) => {
-// snapshot.docs.forEach((item) => {
-// console.log(item.id);
-// console.log(item.data());
-//
-// addtheproject(item.data(), item.id);
-// });
-// })
-// .catch((err) => {
-// console.log(err);
-// });
 
 // delete document from the browser
 const deleteitem = (id) => {
@@ -136,37 +89,16 @@ projectform.addEventListener("submit", (e) => {
 // deleting data from the database
 place.addEventListener("click", (e) => {
   console.log(e);
-  if (e.target.classList.contains("list-group-item")) {
-    // if (e.target.classList.contains("delete")) {
-    const id = e.target.getAttribute("data-id");
+
+  if (e.target.classList.contains("delete")) {
+    const id = e.target.parentElement.getAttribute("data-id");
+
     console.log(id);
-    // db.collection("default-projects")
-    // .doc(id)
-    // .delete()
-    // .then(() => {
-    // console.log("item deleted");
-    // });
+    db.collection("default-projects")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("item deleted");
+      });
   }
 });
-
-// place.addEventListener("click", (e) => {
-// console.log(e);
-// });
-
-// list.addEventListener("click", (e) => {
-// console.log(e);
-// if (e.target.tagName === "li") {
-// const id = e.target.parentElement.getAttribute("data-id");
-// console.log(id);
-// }
-// if (e.target.classList.contains("delete")) {
-// const id = e.target.parentElement.getAttribute("data-id");
-// console.log(id);
-// db.collection("default-list")
-// .doc(id)
-// .delete()
-// .then(() => {
-// console.log("item deleted");
-// });
-// }
-// });
