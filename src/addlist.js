@@ -1,5 +1,6 @@
 import { list } from "./index.js";
-
+const dele = document.querySelector(".add");
+const forma = document.querySelector("#recipe");
 const mainform = document.querySelector(".ControlInput1");
 const inputone = document.querySelector("#ControlInputone");
 const textarea = document.querySelector("#ControlTextareaone");
@@ -30,6 +31,13 @@ mainform.addEventListener("submit", (e) => {
   console.log(textarea.value);
   console.log(date.value);
   console.log(selection.value);
+
+  // function submitform() {
+  // document.getElementById("addthis").submit();
+  // }
+
+  // forma.value = inputone.value;
+  // dele.submit();
 
   list.appendChild(titles);
   titles.appendChild(can);

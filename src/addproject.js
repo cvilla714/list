@@ -28,10 +28,10 @@ const data = document.querySelector(".addproject");
 // });
 
 // get the button action to close
-const close = document.querySelector(".btn-close");
-close.addEventListener("click", (e) => {
-  console.log(e);
-});
+// const close = document.querySelector(".btn-close");
+// close.addEventListener("click", (e) => {
+// console.log(e);
+// });
 
 const including = document.querySelector(".include");
 including.addEventListener("click", (e) => {
