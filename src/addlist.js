@@ -36,11 +36,11 @@ mainform.addEventListener("submit", (e) => {
   // document.getElementById("addthis").submit();
   // }
 
-  // forma.value = inputone.value;
+  // forma.value = inputone.value.submit();
   // dele.submit();
 
-  list.appendChild(titles);
-  titles.appendChild(can);
+  // list.appendChild(titles);
+  // titles.appendChild(can);
 
   const maintablerow = document.createElement("tr");
 

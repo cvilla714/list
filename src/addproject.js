@@ -1,4 +1,5 @@
 // const lista = document.querySelector(".projects");
+const list = document.querySelector(".todos");
 const project = document.querySelector(".btn-success");
 const place = document.querySelector(".projectos");
 const projectform = document.querySelector(".addproject");
@@ -135,18 +136,37 @@ projectform.addEventListener("submit", (e) => {
 // deleting data from the database
 place.addEventListener("click", (e) => {
   console.log(e);
-  if (e.target.classList.contains("delete")) {
-    const id = e.target.parentElement.getAttribute("data-id");
+  if (e.target.classList.contains("list-group-item")) {
+    // if (e.target.classList.contains("delete")) {
+    const id = e.target.getAttribute("data-id");
     console.log(id);
-    db.collection("default-projects")
-      .doc(id)
-      .delete()
-      .then(() => {
-        console.log("item deleted");
-      });
+    // db.collection("default-projects")
+    // .doc(id)
+    // .delete()
+    // .then(() => {
+    // console.log("item deleted");
+    // });
   }
 });
 
 // place.addEventListener("click", (e) => {
 // console.log(e);
+// });
+
+// list.addEventListener("click", (e) => {
+// console.log(e);
+// if (e.target.tagName === "li") {
+// const id = e.target.parentElement.getAttribute("data-id");
+// console.log(id);
+// }
+// if (e.target.classList.contains("delete")) {
+// const id = e.target.parentElement.getAttribute("data-id");
+// console.log(id);
+// db.collection("default-list")
+// .doc(id)
+// .delete()
+// .then(() => {
+// console.log("item deleted");
+// });
+// }
 // });

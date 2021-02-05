@@ -9,7 +9,7 @@ foo();
 // const lista = document.querySelector("ul");
 export const list = document.querySelector(".todos");
 const search = document.querySelector(".search input");
-const form = document.querySelector(".add");
+export const form = document.querySelector(".add");
 export const additem = (item, id) => {
   const when = dateFns.distanceInWordsToNow(item.created_at.toDate(), { addSuffix: true });
   // let time = item.created_at.toDate();
