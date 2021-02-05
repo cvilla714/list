@@ -26,6 +26,7 @@ place.addEventListener("click", (e) => {
     console.log(id);
     // const projecttable = document.createElement("section");
     // projecttable.className = id;
+    // console.log(projecttable);
     // const tome = document.querySelector(`.${id}`);
     // console.log(tome);
     // const projectSection = document.querySelector(`[data-id="${id}"]`);
@@ -36,80 +37,82 @@ place.addEventListener("click", (e) => {
     // console.log(projecttable);
     // return projecttable;
 
-    addlist(id);
+    // addlist(id);
+    mainform.addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log(inputone.value);
+
+      const tome = document.querySelector(`.${id}`);
+      // console.log(tome);
+      const titles = document.createElement("li");
+      titles.className = "list-group-item d-flex justify-content-between align-items-center";
+      // const wrap = document.createElement("div");
+      titles.textContent = inputone.value;
+      const can = document.createElement("i");
+      can.className = "far fa-trash-alt delete";
+      // titles.style.color = "red";
+      // titles.setAttribute("style", "list-style: none;");
+      //
+      // const check = document.createElement("input");
+      // check.setAttribute("type", "checkbox");
+      // check.className = "pl-2";
+
+      // console.log(textarea.value);
+      // console.log(date.value);
+      // console.log(selection.value);
+
+      // function submitform() {
+      // document.getElementById("addthis").submit();
+      // }
+
+      // document.querySelector("#recipe").onchange((e) => {
+      // console.log(e.target.value);
+      // });
+      forma.addEventListener("click", (e) => {
+        console.log(e);
+      });
+      // forma.value = inputone.value;
+      // dele.submit();
+
+      // list.appendChild(titles);
+      // titles.appendChild(can);
+
+      const maintablerow = document.createElement("tr");
+
+      const tabletitle = document.createElement("td");
+      tabletitle.textContent = inputone.value;
+      tabletitle.style.color = "red";
+      tabletitle.setAttribute("style", "list-style: none;");
+
+      const tabledescription = document.createElement("td");
+      tabledescription.textContent = textarea.value;
+      tabledescription.style.color = "red";
+      tabledescription.setAttribute("style", "list-style: none;");
+
+      const tabledate = document.createElement("td");
+      tabledate.textContent = date.value;
+      tabledate.style.color = "red";
+      tabledate.setAttribute("style", "list-style: none;");
+
+      const tableselection = document.createElement("td");
+      tableselection.textContent = selection.value;
+      tableselection.style.color = "red";
+      tableselection.setAttribute("style", "list-style: none;");
+
+      maintablerow.append(tabletitle, tabledescription, tabledate, tableselection);
+      console.log(maintablerow);
+
+      tome.append(maintablerow);
+      console.log(tome);
+      // projecttable.append(maintablerow);
+      // console.log(projecttable);
+
+      mainform.reset();
+      // proej.append(projecttable);
+
+      document.querySelector(".cierre").click();
+    });
   }
 });
 
-function addlist(id) {
-  mainform.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log(inputone.value);
-
-    const tome = document.querySelector(`.${id}`);
-    // console.log(tome);
-    const titles = document.createElement("li");
-    titles.className = "list-group-item d-flex justify-content-between align-items-center";
-    // const wrap = document.createElement("div");
-    titles.textContent = inputone.value;
-    const can = document.createElement("i");
-    can.className = "far fa-trash-alt delete";
-    // titles.style.color = "red";
-    // titles.setAttribute("style", "list-style: none;");
-    //
-    // const check = document.createElement("input");
-    // check.setAttribute("type", "checkbox");
-    // check.className = "pl-2";
-
-    // console.log(textarea.value);
-    // console.log(date.value);
-    // console.log(selection.value);
-
-    // function submitform() {
-    // document.getElementById("addthis").submit();
-    // }
-
-    // document.querySelector("#recipe").onchange((e) => {
-    // console.log(e.target.value);
-    // });
-    forma.addEventListener("click", (e) => {
-      console.log(e);
-    });
-    // forma.value = inputone.value;
-    // dele.submit();
-
-    // list.appendChild(titles);
-    // titles.appendChild(can);
-
-    const maintablerow = document.createElement("tr");
-
-    const tabletitle = document.createElement("td");
-    tabletitle.textContent = inputone.value;
-    tabletitle.style.color = "red";
-    tabletitle.setAttribute("style", "list-style: none;");
-
-    const tabledescription = document.createElement("td");
-    tabledescription.textContent = textarea.value;
-    tabledescription.style.color = "red";
-    tabledescription.setAttribute("style", "list-style: none;");
-
-    const tabledate = document.createElement("td");
-    tabledate.textContent = date.value;
-    tabledate.style.color = "red";
-    tabledate.setAttribute("style", "list-style: none;");
-
-    const tableselection = document.createElement("td");
-    tableselection.textContent = selection.value;
-    tableselection.style.color = "red";
-    tableselection.setAttribute("style", "list-style: none;");
-
-    maintablerow.append(tabletitle, tabledescription, tabledate, tableselection);
-    console.log(maintablerow);
-    console.log(tome);
-    tome.append(maintablerow);
-    console.log(tome);
-    mainform.reset();
-    // proej.append(projecttable);
-
-    document.querySelector(".cierre").click();
-  });
-}
+function addlist(id) {}
