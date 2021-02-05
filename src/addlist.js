@@ -8,15 +8,21 @@ const selection = document.querySelector(".form-select");
 const info = document.querySelector(".info");
 // const maintable = document.querySelector(".tableitem")
 const tablebody = document.querySelector("tbody");
+// const when = dateFns.distanceInWordsToNow(item.created_at.toDate(), { addSuffix: true });
 
 mainform.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log(inputone.value);
-  const titles = document.createElement("li");
-  titles.textContent = inputone.value;
-  titles.style.color = "red";
-  titles.setAttribute("style", "list-style: none;");
 
+  const titles = document.createElement("li");
+  titles.className = "list-group-item d-flex justify-content-between align-items-center";
+  // const wrap = document.createElement("div");
+  titles.textContent = inputone.value;
+  const can = document.createElement("i");
+  can.className = "far fa-trash-alt delete";
+  // titles.style.color = "red";
+  // titles.setAttribute("style", "list-style: none;");
+  //
   const check = document.createElement("input");
   check.setAttribute("type", "checkbox");
   check.className = "pl-2";
@@ -26,7 +32,7 @@ mainform.addEventListener("submit", (e) => {
   console.log(selection.value);
 
   list.appendChild(titles);
-  titles.appendChild(check);
+  titles.appendChild(can);
 
   const maintablerow = document.createElement("tr");
 
