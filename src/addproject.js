@@ -18,7 +18,7 @@ including.addEventListener("click", (e) => {
   document.querySelector(".btn-close").click();
 });
 
-const addtheproject = (item, id) => {
+export const addtheproject = (item, id) => {
   // const when = dateFns.distanceInWordsToNow(item.created_at.toDate(), { addSuffix: true });
   // let time = item.created_at.toDate();
   const html = `
@@ -27,9 +27,9 @@ const addtheproject = (item, id) => {
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Add Your Event
   </button>
-  <div class="${id}"></div>
   <i class="far fa-trash-alt delete"></i>
   </li>
+  <div class="${id}"></div>
   `;
   // console.log(html);
   // lista.innerHTML += html;
