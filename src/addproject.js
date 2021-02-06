@@ -30,7 +30,20 @@ const addtheproject = (item, id) => {
   </button>
   <i class="far fa-trash-alt delete"></i>
   </li>
-  <div class="${id}"></div>
+  <div class="${id}">
+  <table class="table bg-danger">
+  <thead>
+    <tr>
+      <th scope="col">Title Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+      <th scope="col">Priority</th>
+    </tr>
+  </thead>
+  <tbody class="content">
+  </tbody>
+</table>
+  </div>
   `;
   // console.log(html);
   // lista.innerHTML += html;

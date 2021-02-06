@@ -1,14 +1,11 @@
 import { list } from "./index.js";
 import { addproject } from "./addproject";
-const dele = document.querySelector(".add");
-const forma = document.querySelector("#recipe");
+
 const mainform = document.querySelector(".ControlInput1");
 const inputone = document.querySelector("#ControlInputone");
 const textarea = document.querySelector("#ControlTextareaone");
 const date = document.querySelector("#thedate");
 const selection = document.querySelector(".form-select");
-const info = document.querySelector(".info");
-const listado = document.querySelector(".eventlist");
 const place = document.querySelector(".projectos");
 let id = null;
 
@@ -29,24 +26,27 @@ const addListListener = (e) => {
   titles.textContent = inputone.value;
   const can = document.createElement("i");
   can.className = "far fa-trash-alt delete";
+
   const maintablerow = document.createElement("tr");
   const tabletitle = document.createElement("td");
   tabletitle.textContent = inputone.value;
-  tabletitle.style.color = "red";
-  // tabletitle.setAttribute("style","list-style: none;");​
+  // tabletitle.style.color = "red";
+  // tabletitle.setAttribute("style", "list-style: none;");
   const tabledescription = document.createElement("td");
   tabledescription.textContent = textarea.value;
-  tabledescription.style.color = "red";
-  tabledescription.setAttribute("style", "list-style: none;");
+  // tabledescription.style.color = "red";
+  // tabledescription.setAttribute("style", "list-style: none;");
   const tabledate = document.createElement("td");
   tabledate.textContent = date.value;
-  tabledate.style.color = "red";
-  tabledate.setAttribute("style", "list-style: none;");
+  // tabledate.style.color = "red";
+  // tabledate.setAttribute("style", "list-style: none;");
   const tableselection = document.createElement("td");
   tableselection.textContent = selection.value;
-  tableselection.style.color = "red";
-  tableselection.setAttribute("style", "list-style: none;");
+  // tableselection.style.color = "red";
+  // tableselection.setAttribute("style", "list-style: none;");
   maintablerow.append(tabletitle, tabledescription, tabledate, tableselection);
+  // tbody.append(maintablerow);
+  // tome.append(tbody);
   //console.log(maintablerow);
   //console.log(tome);
   tome.append(maintablerow);
