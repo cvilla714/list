@@ -30,8 +30,8 @@ const addtheproject = (item, id) => {
   </button>
   <i class="far fa-trash-alt delete"></i>
   </li>
-  <div class="${id}">
-  <table class="table bg-danger">
+  <div class="">
+  <table class="table bg-light">
   <thead>
     <tr>
       <th scope="col">Title Name</th>
@@ -40,7 +40,7 @@ const addtheproject = (item, id) => {
       <th scope="col">Priority</th>
     </tr>
   </thead>
-  <tbody class="content">
+  <tbody class="${id}">
   </tbody>
 </table>
   </div>
