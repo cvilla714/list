@@ -2,6 +2,7 @@ const project = document.querySelector(".btn-success");
 const place = document.querySelector(".projectos");
 const projectform = document.querySelector(".addproject");
 
+export { place };
 // get the correct content from the button
 project.addEventListener("click", (e) => {
   console.log(e);
@@ -18,7 +19,7 @@ including.addEventListener("click", (e) => {
   document.querySelector(".btn-close").click();
 });
 
-export const addtheproject = (item, id) => {
+const addtheproject = (item, id) => {
   // const when = dateFns.distanceInWordsToNow(item.created_at.toDate(), { addSuffix: true });
   // let time = item.created_at.toDate();
   const html = `
