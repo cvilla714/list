@@ -24,21 +24,6 @@ export const additem = (item, id) => {
   list.innerHTML += html;
 };
 
-// get documents
-// db.collection("default-list")
-// .get()
-// .then((snapshot) => {
-// snapshot.docs.forEach((item) => {
-// console.log(item.id);
-// console.log(item.data());
-//
-// additem(item.data(), item.id);
-// });
-// })
-// .catch((err) => {
-// console.log(err);
-// });
-
 // real time event listners to the databse
 // to add and delete elements from the webbrowser
 db.collection("default-list").onSnapshot((snapshot) => {
@@ -67,17 +52,6 @@ const deleteitem = (id) => {
 // add documents to the database
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  // console.log(recipe.value);
-  // const entrada = {
-  // title: form.recipe.value.trim(),
-  // created_at: firebase.firestore.Timestamp.fromDate(now),
-  // };
-  // console.log(entrada);
-  // if (entrada.title.length == "") {
-  // console.log("no item added");
-  // } else {
-  // additem(entrada);
-  // }
 
   const now = new Date();
   const recipe = {
@@ -113,22 +87,6 @@ list.addEventListener("click", (e) => {
       });
   }
 });
-
-// addform.addEventListener("submit", (event) => {
-// event.preventDefault();
-// const todo = addform.add.value.trim();
-// console.log(todo);
-// if (todo.length) {
-// generatetemplate(todo);
-// addform.reset();
-// }
-// });
-
-// list.addEventListener("click", (event) => {
-// if (event.target.classList.contains("delete")) {
-// event.target.parentElement.remove();
-// }
-// });
 
 const filterthetodolist = (term) => {
   Array.from(list.children)
