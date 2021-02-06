@@ -1,5 +1,6 @@
 import { list } from "./index.js";
 import { addproject } from "./addproject";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const mainform = document.querySelector(".ControlInput1");
 const inputone = document.querySelector("#ControlInputone");
@@ -38,13 +39,16 @@ const addListListener = (e) => {
   // tabledescription.setAttribute("style", "list-style: none;");
   const tabledate = document.createElement("td");
   tabledate.textContent = date.value;
+  const gettime = formatDistanceToNow(new Date(tabledate.textContent), { addSuffix: true });
+  console.log(gettime);
+
   // tabledate.style.color = "red";
   // tabledate.setAttribute("style", "list-style: none;");
   const tableselection = document.createElement("td");
   tableselection.textContent = selection.value;
   // tableselection.style.color = "red";
   // tableselection.setAttribute("style", "list-style: none;");
-  maintablerow.append(tabletitle, tabledescription, tabledate, tableselection);
+  maintablerow.append(tabletitle, tabledescription, gettime, tableselection);
   // tbody.append(maintablerow);
   // tome.append(tbody);
   //console.log(maintablerow);
