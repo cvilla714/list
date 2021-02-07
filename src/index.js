@@ -1,7 +1,6 @@
 import { Tooltip, Toast, Popover } from 'bootstrap';
-import './addproject';
 import './style.scss';
-
+import './addproject';
 import './addlist';
 
 // const lista = document.querySelector("ul");
@@ -68,7 +67,6 @@ form.addEventListener('submit', (e) => {
 
 // deleting data from the database
 list.addEventListener('click', (e) => {
-  console.log(e);
   if (e.target.classList.contains('delete')) {
     const id = e.target.parentElement.getAttribute('data-id');
 
