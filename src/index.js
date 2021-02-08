@@ -46,11 +46,11 @@ allClose.forEach((close, index) => {
 });
 
 // Todo Form
-const todoTitle = document.querySelector('#todoTitle');
-const todoDesc = document.querySelector('#todoDesc');
-const todoDate = document.querySelector('#todoDate');
-const todoPriority = document.querySelector('#todoPriority');
-const todoProject = document.querySelector('#todoProjectSelection');
+const todoTitle = document.querySelector('#tTitle');
+const todoDesc = document.querySelector('#tDesc');
+const todoDate = document.querySelector('#tDate');
+const todoPriority = document.querySelector('#tPriority');
+const todoProject = document.querySelector('#tProjectSelection');
 const todoNotes = document.querySelector('#todoNotes');
 const createTodoBtn = document.querySelector('#createTodoBtn');
 

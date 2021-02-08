@@ -45,21 +45,21 @@ function todoForm() {
   heading.className = 'w-75 mx-auto d-block';
 
   title.className = 'form-control mb-3 w-50 mx-auto d-block';
-  title.setAttribute('id', 'todoTitle');
+  title.setAttribute('id', 'tTitle');
   title.setAttribute('type', 'text');
   title.setAttribute('placeholder', 'Title');
 
   desc.className = 'form-control mb-3 w-50 mx-auto d-block';
-  desc.setAttribute('id', 'todoDesc');
+  desc.setAttribute('id', 'tDesc');
   desc.setAttribute('type', 'text');
   desc.setAttribute('placeholder', 'Description');
 
   date.className = 'form-control mb-3 w-50 mx-auto d-block';
   date.setAttribute('type', 'date');
-  date.setAttribute('id', 'todoDate');
+  date.setAttribute('id', 'tDate');
   date.setAttribute('min', format(new Date(), 'yyyy-MM-dd'));
 
-  const options = ['Low', 'Medium', 'High'];
+  const options = ['Low', 'Normal', 'High'];
   options.forEach((option, index) => {
     const op = document.createElement('option');
 
@@ -68,7 +68,7 @@ function todoForm() {
     priority.add(op);
   });
   priority.className = 'form-select mb-3 w-50 mx-auto d-block';
-  priority.setAttribute('id', 'todoPriority');
+  priority.setAttribute('id', 'tPriority');
 
   button.textContent = 'Create Todo';
   button.className = 'btn btn-primary mx-auto d-block';
@@ -84,7 +84,7 @@ function todoForm() {
     });
   }
   projectSelection.className = 'form-select mb-3 w-50 mx-auto d-block';
-  projectSelection.setAttribute('id', 'todoProjectSelection');
+  projectSelection.setAttribute('id', 'tProjectSelection');
 
   form.append(
     projectSelection,
