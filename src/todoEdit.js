@@ -46,11 +46,6 @@ function todoEdit() {
   priority.className = 'form-select mb-3 w-50 mx-auto d-block';
   priority.setAttribute('id', 'editTPriority');
 
-  notes.className = 'form-control mb-3 w-50 mx-auto d-block';
-  notes.setAttribute('id', 'editTNotes');
-  notes.setAttribute('type', 'text');
-  notes.setAttribute('placeholder', 'Notes');
-
   id.setAttribute('type', 'hidden');
   id.setAttribute('id', 'todoId');
 

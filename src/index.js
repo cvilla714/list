@@ -1,10 +1,10 @@
-require('../dist/css/styles.css');
+require('../dist/css/style.css'); 
 
-const Todo = require('./todoList');
+const Todo = require('./classTodo');
 const todoForm = require('./todoList');
-const editTodo = require('./Edit');
-const Project = require('./project');
-const projectCard = require('./project');
+const editTodo = require('./todoEdit');
+const Project = require('./classProject');
+const projectContainer = require('./containerProject');
 const projectForm = require('./project');
 
 
@@ -18,12 +18,12 @@ const projectModal = document.createElement('button');
 const todoModal = document.createElement('button');
 
 projectModal.setAttribute('type', 'button');
-projectModal.className = 'project-modal-btn btn btn-primary mt-3 me-3';
+projectModal.className = 'project-modal-btn btn btn-primary mt-3 ml-3';
 projectModal.textContent = 'Create Project';
 
 todoModal.setAttribute('type', 'button');
-todoModal.className = 'todo-modal-btn btn btn-primary mt-3';
-todoModal.textContent = 'Create To Do';
+todoModal.className = 'todo-modal-btn btn btn-secondary mt-3 ml-3';
+todoModal.textContent = 'Create To-do';
 
 container.append(projectModal, todoModal);
 container.appendChild(projectForm);
@@ -58,7 +58,6 @@ const todoDesc = document.querySelector('#tDesc');
 const todoDate = document.querySelector('#tDate');
 const todoPriority = document.querySelector('#tPriority');
 const todoProject = document.querySelector('#tProjectSelection');
-const todoNotes = document.querySelector('#todoNotes');
 const createTodoBtn = document.querySelector('#createTodoBtn');
 
 let checkboxId = 0;
@@ -70,7 +69,7 @@ function saveLocal() {
 const createProject = (name) => {
   const newProject = new Project(name);
   projects.push(newProject);
-  row.appendChild(projectCard(newProject.name));
+  row.appendChild(projectContainer(newProject.name));
   saveLocal();
   modalBg.classList.remove('modal-bg-active');
 };
@@ -140,7 +139,6 @@ const renderTodos = (project) => {
       editElems.descInput.value = todo.description;
       editElems.dateInput.value = todo.date;
       editElems.priorityInput.value = todo.priority;
-      editElems.notesInput.value = todo.notes;
       editElems.projectInput.value = todo.project;
       editElems.todoIdInput.value = todo.id;
     });
@@ -159,7 +157,7 @@ function restoreLocal() {
     resetRow();
     projects.forEach((project) => {
       checkboxId = 0;
-      const newProject = projectCard(project.name);
+      const newProject = projectContainer(project.name);
       row.appendChild(newProject);
       renderTodos(project);
     });
@@ -197,10 +195,6 @@ const createTodo = () => {
 
   if (newTodo.description === '') {
     newTodo.description = 'none';
-  }
-
-  if (newTodo.notes === '') {
-    newTodo.notes = 'none';
   }
 
   todoArrayOf(todoProject.value).todos.push(newTodo);
