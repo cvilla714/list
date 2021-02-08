@@ -22,7 +22,7 @@ projectModal.className = 'project-modal-btn btn btn-primary mt-3 ml-3';
 projectModal.textContent = 'Create Project';
 
 todoModal.setAttribute('type', 'button');
-todoModal.className = 'todo-modal-btn btn btn-secondary mt-3 ml-3';
+todoModal.className = 'todo-modal-btn btn btn-primary mt-3 ml-3';
 todoModal.textContent = 'Create To-do';
 
 container.append(projectModal, todoModal);

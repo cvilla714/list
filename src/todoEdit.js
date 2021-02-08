@@ -18,19 +18,19 @@ function todoEdit() {
   const project = document.createElement('input');
 
   heading.textContent = 'Edit To Do';
-  heading.className = 'w-50 mx-auto d-block';
+  heading.className = 'w-75 mx-auto d-block';
 
   title.className = 'form-control mb-3 w-50 mx-auto d-block';
   title.setAttribute('id', 'editTTitle');
   title.setAttribute('type', 'text');
   title.setAttribute('placeholder', 'Title');
 
-  desc.className = 'form-control mb-3 w-50 mx-auto d-block';
+  desc.className = 'form-control mb-3 w-75 mx-auto d-block';
   desc.setAttribute('id', 'editTDesc');
   desc.setAttribute('type', 'text');
   desc.setAttribute('placeholder', 'Description');
 
-  date.className = 'form-control mb-3 w-50 mx-auto d-block';
+  date.className = 'form-control mb-3 w-75 mx-auto d-block';
   date.setAttribute('type', 'date');
   date.setAttribute('id', 'editTDate');
   date.setAttribute('min', format(new Date(), 'yyyy-MM-dd'));
@@ -43,7 +43,7 @@ function todoEdit() {
     op.text = option;
     priority.add(op);
   });
-  priority.className = 'form-select mb-3 w-50 mx-auto d-block';
+  priority.className = 'form-select mb-3 w-75 mx-auto d-block';
   priority.setAttribute('id', 'editTPriority');
 
   id.setAttribute('type', 'hidden');
@@ -62,7 +62,7 @@ function todoEdit() {
   deleteTodoBtn.setAttribute('id', 'deleteTodoBtn');
   deleteTodoBtn.setAttribute('type', 'button');
 
-  btnCont.className = 'mb-3 w-50 mx-auto d-flex justify-content-around';
+  btnCont.className = 'mb-3 w-75 mx-auto d-flex justify-content-around';
   btnCont.append(button, deleteTodoBtn);
 
   form.append(
