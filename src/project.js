@@ -46,7 +46,7 @@ function projectForm() {
   const div = document.createElement('div');
 
   heading.textContent = 'New Project';
-  heading.className = 'w-50 mx-auto d-block';
+  heading.className = 'w-75 mx-auto d-block';
 
   name.className = 'form-control mb-3 w-50 mx-auto d-block b-light';
   name.setAttribute('id', 'projectName');

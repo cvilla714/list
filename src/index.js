@@ -1,4 +1,11 @@
-require('../dist/styles.css');
+require('../dist/css/styles.css');
+
+const Todo = require('./todoList');
+const todoForm = require('./todoList');
+const editTodo = require('./Edit');
+const Project = require('./project');
+const projectCard = require('./project');
+const projectForm = require('./project');
 
 
 let projects = [];
@@ -90,19 +97,20 @@ function finishTodo(projectName, todo) {
   }
 }
 
-const editTodoTitle = document.querySelector('#editTodoTitle');
-const editTodoDesc = document.querySelector('#editTodoDesc');
-const editTodoDate = document.querySelector('#editTodoDate');
-const editTodoPriority = document.querySelector('#editTodoPriority');
+
+// Form to edit an existing element
+
+const editTodoTitle = document.querySelector('#editTTitle');
+const editTodoDesc = document.querySelector('#editTDesc');
+const editTodoDate = document.querySelector('#editTDate');
+const editTodoPriority = document.querySelector('#editTPriority');
 const editTodoProject = document.querySelector('#projectId');
-const editTodoNotes = document.querySelector('#editTodoNotes');
 const todoId = document.querySelector('#todoId');
 const editElems = {
   titleInput: editTodoTitle,
   descInput: editTodoDesc,
   dateInput: editTodoDate,
   priorityInput: editTodoPriority,
-  notesInput: editTodoNotes,
   projectInput: editTodoProject,
   todoIdInput: todoId,
 };
@@ -158,7 +166,7 @@ function restoreLocal() {
   }
 }
 
-// Project Form
+// Form to create a Project
 const projectName = document.querySelector('#projectName');
 const createProjectBtn = document.querySelector('#createProjectBtn');
 row.className = 'row';
@@ -184,7 +192,6 @@ const createTodo = () => {
     todoDesc.value,
     todoDate.value,
     todoPriority.value,
-    todoNotes.value,
     todoProject.value,
   );
 
@@ -210,7 +217,6 @@ const updateTodo = () => {
   const currentTodo = findCurrentTodo(todosArray, editElems.todoIdInput.value);
   currentTodo.date = editElems.dateInput.value;
   currentTodo.description = editElems.descInput.value;
-  currentTodo.notes = editElems.notesInput.value;
   currentTodo.priority = editElems.priorityInput.value;
   currentTodo.title = editElems.titleInput.value;
   editModalDiv.classList.remove('modal-bg-active');
@@ -236,7 +242,7 @@ deleteTodoBtn.addEventListener('click', () => {
   restoreLocal();
 });
 
-// Misc
+// Restore the local values
 
 restoreLocal();
 
