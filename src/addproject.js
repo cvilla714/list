@@ -1,5 +1,5 @@
-const place = document.querySelector('.projectos');
-const projectform = document.querySelector('.addproject');
+const place = document.querySelector(".projectos");
+const projectform = document.querySelector(".addproject");
 
 const addtheproject = (item, id) => {
   const html = `
@@ -18,6 +18,7 @@ const addtheproject = (item, id) => {
       <th scope="col">Description</th>
       <th scope="col">Date</th>
       <th scope="col">Priority</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
   <tbody class="${id}">
@@ -30,13 +31,13 @@ const addtheproject = (item, id) => {
 
 // real time event listners to the databse
 // to add and delete elements from the webbrowser
-db.collection('default-projects').onSnapshot((snapshot) => {
+db.collection("default-projects").onSnapshot((snapshot) => {
   snapshot.docChanges().forEach((change) => {
     const { doc } = change;
 
-    if (change.type === 'added') {
+    if (change.type === "added") {
       addtheproject(doc.data(), doc.id);
-    } else if (change.type === 'removed') {
+    } else if (change.type === "removed") {
       deleteitem(doc.id);
     }
   });
@@ -44,16 +45,16 @@ db.collection('default-projects').onSnapshot((snapshot) => {
 
 // delete document from the browser
 const deleteitem = (id) => {
-  const totalitems = document.querySelectorAll('li');
+  const totalitems = document.querySelectorAll("li");
   totalitems.forEach((itm) => {
-    if (itm.getAttribute('data-id') === id) {
+    if (itm.getAttribute("data-id") === id) {
       itm.remove();
     }
   });
 };
 
 // add documents to the database
-projectform.addEventListener('submit', (e) => {
+projectform.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const now = new Date();
@@ -61,23 +62,23 @@ projectform.addEventListener('submit', (e) => {
     title: projectform.addtheproject.value.trim(),
     created_at: firebase.firestore.Timestamp.fromDate(now),
   };
-  if (addtheproject.title.length == '') {
+  if (addtheproject.title.length == "") {
   } else {
-    db.collection('default-projects')
+    db.collection("default-projects")
       .add(addtheproject)
       .then(() => {})
       .catch((err) => {});
     projectform.reset();
-    document.querySelector('.btn-close').click();
+    document.querySelector(".btn-close").click();
   }
 });
 
 // deleting data from the database
-place.addEventListener('click', (e) => {
-  if (e.target.classList.contains('delete')) {
-    const id = e.target.parentElement.getAttribute('data-id');
+place.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete")) {
+    const id = e.target.parentElement.getAttribute("data-id");
 
-    db.collection('default-projects')
+    db.collection("default-projects")
       .doc(id)
       .delete()
       .then(() => {});
