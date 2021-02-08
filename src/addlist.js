@@ -38,7 +38,11 @@ const addListListener = (e) => {
 
   const tableselection = document.createElement('td');
   tableselection.textContent = selection.value;
-  maintablerow.append(tabletitle, tabledescription, gettime, tableselection);
+  
+  const icon = document.createElement("i")
+  icon.className = "fas fa-edit";
+
+  maintablerow.append(tabletitle, tabledescription, gettime, tableselection,icon);
   tome.append(maintablerow);
 
   mainform.reset();
