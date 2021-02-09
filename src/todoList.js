@@ -1,49 +1,6 @@
 const { format, formatDistanceToNow } = require("date-fns");
 
 function todoForm() {
-<<<<<<< HEAD
-  const projectTitle = document.createElement("h4");
-  const prorityTitle = document.createElement("h4");
-  const projectSelection = document.createElement("select");
-  const form = document.createElement("form");
-  const title = document.createElement("input");
-  const desc = document.createElement("input");
-  const date = document.createElement("input");
-  const priority = document.createElement("select");
-  const heading = document.createElement("h4");
-  const button = document.createElement("button");
-  const modalBg = document.createElement("div");
-  const modalMain = document.createElement("div");
-  const close = document.createElement("i");
-  const div = document.createElement("div");
-
-  projectTitle.textContent = "Select a project to attach the task";
-  projectTitle.className = "mx-auto d-block pl-2";
-
-  prorityTitle.textContent = "Select the prority";
-  prorityTitle.className = "mx-auto d-block pl-2";
-
-  heading.textContent = "New To Do";
-  heading.className = "w-75 mx-auto d-block pl-5";
-
-  title.className = "form-control mb-3 w-75 mx-auto d-block";
-  title.setAttribute("id", "tTitle");
-  title.setAttribute("type", "text");
-  title.setAttribute("placeholder", "Title of the to-do");
-
-  desc.className = "form-control mb-3 w-75 mx-auto d-block";
-  desc.setAttribute("id", "tDesc");
-  desc.setAttribute("type", "text");
-  desc.setAttribute("placeholder", "Description");
-
-  date.className = "form-control mb-3 w-75 mx-auto d-block";
-  date.setAttribute("type", "date");
-  date.setAttribute("id", "tDate");
-  date.setAttribute("min", format(new Date(), "yyyy-MM-dd"));
-  // date.setAttribute('min', formatDistanceToNow(new Date());
-
-  const options = ["Low", "Normal", "High"];
-=======
   const projectTitle = document.createElement('h4');
   const prorityTitle = document.createElement('h4');
   const projectSelection = document.createElement('select');
@@ -84,7 +41,6 @@ function todoForm() {
   date.setAttribute('min', format(new Date(), 'yyyy-dd-MM'));
 
   const options = ['Low', 'Normal', 'High'];
->>>>>>> fdde6756c35f72d094a46102e5febe07855b3571
   options.forEach((option, index) => {
     const op = document.createElement("option");
 
