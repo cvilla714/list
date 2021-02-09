@@ -38,14 +38,14 @@
       </form>
     </div>
 
-    <div class="todo-list">
+    <div class="todo-list main-container" data-list-display-container >
       <div class="todo-header">
-        <h2 class="list-title">YouTube</h2>
-        <p class="task-count">3 tasks remaining</p>
+        <h2 class="list-title main-title" data-list-title >YouTube</h2>
+        <p class="task-count counter" data-list-count >3 tasks remaining</p>
       </div>
 
       <div class="todo-body">
-        <div class="tasks">
+        <div class="tasks todos" data-tasks >
           <div class="task">
             <input 
               type="checkbox"
@@ -101,9 +101,15 @@
         </div>
       </div>
     </div>
-
-   
     </div>
+    <template id="task-template">
+      <div class="task">
+        <input type="checkbox"/>
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+      </div>
+    </template>
     <script src="./themain.js"></script>
   </body>
 </html>
