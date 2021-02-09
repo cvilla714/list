@@ -4,7 +4,8 @@ class Todo {
   constructor(title, description, date, priority, project, finished = false) {
     this.title = title;
     this.description = description;
-    this.date = format(new Date(date.replace(/-/g, ',')), 'yyyy-dd-MM');
+    // this.date = format(new Date(date.replace(/-/g, ',')), 'yyyy-dd-MM');
+    this.date = formatDistanceToNow(new Date(date), { addSuffix: true });
     this.priority = priority;
     this.finished = finished;
     this.project = project;
