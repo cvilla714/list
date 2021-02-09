@@ -1,37 +1,37 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
+  mode: "development",
+  entry: "./src/list.js",
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "themain.js",
+    path: path.resolve(__dirname, "dist"),
   },
 
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   devServer: {
-    contentBase: './dist',
+    contentBase: "./dist",
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          'style-loader',
+          "style-loader",
           // Translates CSS into CommonJS
-          'css-loader',
+          "css-loader",
           // Compiles Sass to CSS
-          'sass-loader',
+          "sass-loader",
         ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
