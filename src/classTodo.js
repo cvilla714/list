@@ -1,4 +1,4 @@
-const { format, formatDistanceToNow } = require("date-fns");
+const { formatDistanceToNow } = require('date-fns');
 
 class Todo {
   constructor(title, description, date, priority, project, finished = false) {
