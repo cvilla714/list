@@ -7,7 +7,7 @@ function projectContainer(title) {
   const todoList = document.createElement('ul');
 
   card.className = 'card';
-  card.style.width = '18rem';
+  card.style.width = '55rem';
 
   cardHeader.className = 'card-header';
 

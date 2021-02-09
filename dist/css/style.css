@@ -6,24 +6,19 @@ body {
 }
 input[type="text"],
 input[type="text"]:focus {
-  color: #fff;
+  color: rgb(0, 0, 0);
   border: none;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(255, 255, 255);
   max-width: 400px;
 }
 .todos li {
-  background: #423a6f;
+  background: #afa6ffc5;
 }
 .delete {
   cursor: pointer;
 }
 .filtered {
   display: none !important;
-}
-
-
-body {
-  background-color: #dadada;
 }
 
 .low {
@@ -53,6 +48,13 @@ li {
   cursor: pointer;
 }
 
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
 .modal-bg {
   position: fixed;
   top: 0;
@@ -66,6 +68,7 @@ li {
   z-index: 999;
   visibility: hidden;
   opacity: 0;
+  color: black;
 }
 
 .modal-bg-active {
@@ -74,7 +77,7 @@ li {
 }
 
 .modal-main {
-  background-color: white;
+  background-color: rgb(145, 92, 170);
   width: 30%;
   height: 60%;
   border-radius: 5px;
@@ -95,9 +98,4 @@ li {
   font-size: 1.2em;
 }
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
+

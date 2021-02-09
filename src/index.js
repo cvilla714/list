@@ -22,7 +22,7 @@ projectModal.className = 'project-modal-btn btn btn-primary mt-3 ml-3';
 projectModal.textContent = 'Create Project';
 
 todoModal.setAttribute('type', 'button');
-todoModal.className = 'todo-modal-btn btn btn-primary mt-3 ml-3';
+todoModal.className = 'todo-modal-btn btn btn-secondary mt-3 ml-3';
 todoModal.textContent = 'Create To-do';
 
 container.append(projectModal, todoModal);
@@ -97,6 +97,60 @@ function finishTodo(projectName, todo) {
 }
 
 
+
+// Form to create a Project
+const projectName = document.querySelector('#projectName');
+const createProjectBtn = document.querySelector('#createProjectBtn');
+row.className = 'row';
+container.appendChild(row);
+
+createProjectBtn.addEventListener('click', () => {
+  createProject(projectName.value);
+  restoreLocal();
+});
+
+function todoArrayOf(project) {
+  return projects[projectNameArray.indexOf(project)];
+}
+
+function findCurrentTodo(todos, todoId) {
+  const currentTodoIndex = todos.findIndex((obj) => obj.id == todoId);
+  return todos[currentTodoIndex];
+}
+
+const createTodo = () => {
+  const newTodo = new Todo(
+    todoTitle.value,
+    todoDesc.value,
+    todoDate.value,
+    todoPriority.value,
+    todoProject.value,
+  );
+
+  if (newTodo.description === '') {
+    newTodo.description = 'none';
+  }
+
+  todoArrayOf(todoProject.value).todos.push(newTodo);
+  saveLocal();
+  checkboxId = 0;
+  renderTodos(todoArrayOf(todoProject.value));
+  todoContModal.classList.remove('modal-bg-active');
+};
+
+createTodoBtn.addEventListener('click', createTodo);
+
+const updateTodo = () => {
+  const todosArray = todoArrayOf(editElems.projectInput.value).todos;
+  const currentTodo = findCurrentTodo(todosArray, editElems.todoIdInput.value);
+  currentTodo.date = editElems.dateInput.value;
+  currentTodo.description = editElems.descInput.value;
+  currentTodo.priority = editElems.priorityInput.value;
+  currentTodo.title = editElems.titleInput.value;
+  editModalDiv.classList.remove('modal-bg-active');
+  saveLocal();
+};
+
 // Form to edit an existing element
 
 const editTodoTitle = document.querySelector('#editTTitle');
@@ -164,58 +218,6 @@ function restoreLocal() {
   }
 }
 
-// Form to create a Project
-const projectName = document.querySelector('#projectName');
-const createProjectBtn = document.querySelector('#createProjectBtn');
-row.className = 'row';
-container.appendChild(row);
-
-createProjectBtn.addEventListener('click', () => {
-  createProject(projectName.value);
-  restoreLocal();
-});
-
-function todoArrayOf(project) {
-  return projects[projectNameArray.indexOf(project)];
-}
-
-function findCurrentTodo(todos, todoId) {
-  const currentTodoIndex = todos.findIndex((obj) => obj.id == todoId);
-  return todos[currentTodoIndex];
-}
-
-const createTodo = () => {
-  const newTodo = new Todo(
-    todoTitle.value,
-    todoDesc.value,
-    todoDate.value,
-    todoPriority.value,
-    todoProject.value,
-  );
-
-  if (newTodo.description === '') {
-    newTodo.description = 'none';
-  }
-
-  todoArrayOf(todoProject.value).todos.push(newTodo);
-  saveLocal();
-  checkboxId = 0;
-  renderTodos(todoArrayOf(todoProject.value));
-  todoContModal.classList.remove('modal-bg-active');
-};
-
-createTodoBtn.addEventListener('click', createTodo);
-
-const updateTodo = () => {
-  const todosArray = todoArrayOf(editElems.projectInput.value).todos;
-  const currentTodo = findCurrentTodo(todosArray, editElems.todoIdInput.value);
-  currentTodo.date = editElems.dateInput.value;
-  currentTodo.description = editElems.descInput.value;
-  currentTodo.priority = editElems.priorityInput.value;
-  currentTodo.title = editElems.titleInput.value;
-  editModalDiv.classList.remove('modal-bg-active');
-  saveLocal();
-};
 // Edit a To-Do
 
 const editTodoBtn = document.querySelector('#editTodoBtn');

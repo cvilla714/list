@@ -11,12 +11,12 @@ function projectForm() {
   heading.textContent = 'New Project';
   heading.className = 'w-75 mx-auto d-block';
 
-  name.className = 'form-control mb-3 w-50 mx-auto d-block b-light';
+  name.className = 'form-control mb-3 w-75 mx-auto d-block b-light';
   name.setAttribute('id', 'projectName');
   name.setAttribute('type', 'text');
 
   button.textContent = 'Create Project';
-  button.className = 'btn btn-primary mx-auto d-block';
+  button.className = 'btn btn-secondary mx-auto d-block';
   button.setAttribute('id', 'createProjectBtn');
   button.setAttribute('type', 'submit');
 
