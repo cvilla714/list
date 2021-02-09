@@ -132,7 +132,7 @@ function todoArrayOf(project) {
 }
 
 function findCurrentTodo(todos, todoId) {
-  const currentTodoIndex = todos.findIndex((obj) => obj.id === todoId);
+  const currentTodoIndex = todos.findIndex((obj) => obj.id == todoId);
   return todos[currentTodoIndex];
 }
 
