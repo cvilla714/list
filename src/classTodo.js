@@ -1,17 +1,11 @@
-const { format } = require('date-fns');
+const { format, formatDistanceToNow } = require("date-fns");
 
 class Todo {
-  constructor(
-    title,
-    description,
-    date,
-    priority,
-    project,
-    finished = false,
-  ) {
+  constructor(title, description, date, priority, project, finished = false) {
     this.title = title;
     this.description = description;
-    this.date = format(new Date(date.replace(/-/g, ',')), 'dd-MM-yyyy');
+    this.date = format(new Date(date.replace(/-/g, ",")), "dd-MM-yyyy");
+    // this.date = formatDistanceToNow(new Date(date), { addSuffix: true });
     this.priority = priority;
     this.finished = finished;
     this.project = project;
