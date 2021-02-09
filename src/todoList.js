@@ -16,10 +16,10 @@ function todoForm() {
   const div = document.createElement('div');
 
   projectTitle.textContent = 'Select a project to attach the task';
-  projectTitle.className = 'w-75 mx-auto d-block pl-5';
+  projectTitle.className = 'w-75 mx-auto d-block pl-2';
 
   heading.textContent = 'New To Do';
-  heading.className = 'w-75 mx-auto d-block';
+  heading.className = 'w-75 mx-auto d-block pl-5';
 
   title.className = 'form-control mb-3 w-75 mx-auto d-block';
   title.setAttribute('id', 'tTitle');
