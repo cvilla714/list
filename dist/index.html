@@ -1,152 +1,116 @@
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo list</title>
+    <!-- Link for Font Awesome -->
+<script src="https://kit.fontawesome.com/e252d07dd4.js" crossorigin="anonymous"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="css/main.css" /> -->
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Link for Font Awesome -->
-  <script src="https://kit.fontawesome.com/e252d07dd4.js" crossorigin="anonymous"></script>
+  <body>
+    <h1 class="title">Please add your Projects</h1>
 
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <div class="all-tasks">
+      <h2 class="task-list-title">My Projects</h2>
+      <button class="btn delete gone" data-delete-list-button><i class="far fa-trash-alt delete fa-lg"></i></button>
+      <ul class="task-list" data-lists>
+        <!-- <li class="list-name active-list">Youtube</li> -->
+        <!-- <li class="list-name">Work</li> -->
+        <!-- <li class="list-name">Grocery</li> -->
+      </ul> 
 
-  <title>Project Todo List</title>
-</head>
-
-<body class="container">
-  <div class="row">
-    <div class="col-12 additem">
-      <div class="project">
-        <h1 class="text-white mx-auto d-flex align-content-center">Please add your project</h1>
-        <div class="pro">
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Please Add Your Project
-          </button>
-          <ul class="list-group projectos mx-auto text-light">
-          </ul>
-
-          <!-- Modal -->
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title pb-3" id="staticBackdropLabel">Adding New Project</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form class="addproject text-center my-4">
-                    <label class="text-light">Add a new todo...</label>
-                    <input class="form-control m-auto" type="text" name="add" id="addtheproject" />
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Understood</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal for add the event -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered"">
-              <div class=" modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Event title</h5>
-            <button type="button" class="btn-close cierre" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div>
-                <div class="">
-                  <form class="ControlInput1 text-center my-4">
-                    <div class='row'>
-                      <label class="text-primary">Add the title </label>
-                      <input class="form-control m-auto" type="text" name="add" id="ControlInputone" />
-                      <div class="mb-3">
-                        <label for="ControlTextarea1" class="form-label">Description</label>
-                        <textarea class="form-control" id="ControlTextareaone" rows="3"></textarea>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="mb-3">
-                          <label for="ControlInput2" class="form-label">Due Date</label>
-                          <input type="date" class="form-control" id="thedate" paceholder="choose a date">
-                        </div>
-                        <div class="mb-3">
-                          <label for="ControlTextarea3" class="form-label">Priority</label>
-                          <select class="form-select" aria-label="Default select example">
-                            <option selected>Chose the priority for the event</option>
-                            <option value="1">High</option>
-                            <option value="2">Medium</option>
-                            <option value="3">Low</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary out" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary include">Save changes</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="col-12">
-
-    <div class="container">
-      <header class="text-center text-light my-4">
-        <h1 class="mb-4">Quick Todo List</h1>
-        <form class="search">
-          <input class="form-control m-auto" type="text" name="search" placeholder="search todos" />
-        </form>
-      </header>
-      <!--  -->
-      <ul class="list-group todos mx-auto text-light">
-      </ul>            
-      <form class="add text-center my-4" id="addthis">
-        <label class="text-light">Add a new todo...</label>
-        <input class="form-control m-auto" type="text" name="add" id="recipe" />
+      <form action="" data-new-list-form>
+        <input 
+          type="text"
+          class="new list"
+          data-new-list-input
+          placeholder="new list name"
+          aria-label="new list name"
+        />
+        <button class="btn create" aria-label="create new list">+</button>
       </form>
     </div>
-  </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js"
-    integrity="sha512-F+u8eWHrfY8Xw9BLzZ8rG/0wIvs0y+JyRJrXjp3VjtFPylAEEGwKbua5Ip/oiVhaTDaDs4eU2Xtsxjs/9ag2bQ=="
-    crossorigin="anonymous"></script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <div class="todo-list main-container" data-list-display-container >
+      <div class="todo-header">
+        <h2 class="list-title main-title" data-list-title >YouTube</h2>
+        <p class="task-count counter" data-list-count >3 tasks remaining</p>
+      </div>
 
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyCQZCmki9A6IviwAyvZq8qzZFeDjNsmBzQ",
-      authDomain: "todolist-project-6bf3f.firebaseapp.com",
-      projectId: "todolist-project-6bf3f",
-      storageBucket: "todolist-project-6bf3f.appspot.com",
-      messagingSenderId: "183785307167",
-      appId: "1:183785307167:web:7f3e333a5a67ac7b5ce92a"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-  </script>
-  <script src="./main.js"></script>
-</body>
+      <div class="todo-body">
+        <div class="tasks todos" data-tasks >
+          <div class="task">
+            <input 
+              type="checkbox"
+              id="task-1"
+            />
+            <label for="task-1">
+              <span class="custom-checkbox"></span>
+              record todo list video
+            </label>
+          </div>
+          <!-- /task-1 -->
+
+          <div class="task">
+              <input 
+                type="checkbox"
+                id="task-2"
+              />
+              <label for="task-2">
+                <span class="custom-checkbox"></span>
+                another task
+              </label>
+            </div>
+            <!-- /task-2 -->
+
+            <div class="task">
+                <input 
+                  type="checkbox"
+                  id="task-3"
+                />
+                <label for="task-3">
+                  <span class="custom-checkbox"></span>
+                  a third task
+                </label>
+              </div>
+              <!-- /task-3 -->
+        </div>
+
+        <div class="new-task-creator">
+            <form action="" data-new-task-form >
+                <input 
+                  type="text"
+                  data-new-task-input
+                  class="new task"
+                  placeholder="new task name"
+                  aria-label="new task name"
+                />
+                <button class="btn create" aria-label="create new task">+</button>
+              </form>
+        </div>
+
+        <div class="delete-stuff">
+          <button class="btn delete">Clear completed tasks</button>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+    <template id="task-template">
+      <div class="task">
+        <input type="checkbox"/>
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+      </div>
+    </template>
+    <script src="./themain.js"></script>
+  </body>
 </html>
