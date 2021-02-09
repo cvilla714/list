@@ -1,42 +1,43 @@
 const { format, formatDistanceToNow } = require("date-fns");
 
 function todoEdit() {
-  const modalBg = document.createElement('div');
-  const modalMain = document.createElement('div');
-  const form = document.createElement('form');
-  const title = document.createElement('input');
-  const desc = document.createElement('input');
-  const date = document.createElement('input');
-  const priority = document.createElement('select');
-  const id = document.createElement('input');
-  const heading = document.createElement('h5');
-  const button = document.createElement('button');
-  const close = document.createElement('i');
-  const div = document.createElement('div');
-  const deleteTodoBtn = document.createElement('button');
-  const btnCont = document.createElement('div');
-  const project = document.createElement('input');
+  const modalBg = document.createElement("div");
+  const modalMain = document.createElement("div");
+  const form = document.createElement("form");
+  const title = document.createElement("input");
+  const desc = document.createElement("input");
+  const date = document.createElement("input");
+  const priority = document.createElement("select");
+  const id = document.createElement("input");
+  const heading = document.createElement("h5");
+  const button = document.createElement("button");
+  const close = document.createElement("i");
+  const div = document.createElement("div");
+  const deleteTodoBtn = document.createElement("button");
+  const btnCont = document.createElement("div");
+  const project = document.createElement("input");
 
-  heading.textContent = 'Edit To Do';
-  heading.className = 'w-75 mx-auto d-block';
+  heading.textContent = "Edit To Do";
+  heading.className = "w-75 mx-auto d-block";
 
-  title.className = 'form-control mb-3 w-75 mx-auto d-block';
-  title.setAttribute('id', 'editTTitle');
-  title.setAttribute('type', 'text');
-  title.setAttribute('placeholder', 'Title');
+  title.className = "form-control mb-3 w-75 mx-auto d-block";
+  title.setAttribute("id", "editTTitle");
+  title.setAttribute("type", "text");
+  title.setAttribute("placeholder", "Title");
 
-  desc.className = 'form-control mb-3 w-75 mx-auto d-block';
-  desc.setAttribute('id', 'editTDesc');
-  desc.setAttribute('type', 'text');
-  desc.setAttribute('placeholder', 'Description');
+  desc.className = "form-control mb-3 w-75 mx-auto d-block";
+  desc.setAttribute("id", "editTDesc");
+  desc.setAttribute("type", "text");
+  desc.setAttribute("placeholder", "Description");
 
-  date.className = 'form-control mb-3 w-75 mx-auto d-block';
-  date.setAttribute('type', 'date');
-  date.setAttribute('id', 'editTDate');
-  date.setAttribute('min', format(new Date(), 'yyyy-dd-MM'));
+  date.className = "form-control mb-3 w-75 mx-auto d-block";
+  date.setAttribute("type", "date");
+  date.setAttribute("id", "editTDate");
+  // date.setAttribute('min', format(new Date(), 'yyyy-dd-MM'));
+  date.setAttribute("min", formatDistanceToNow(new Date(), { addSuffix: true }));
 
-  const options = ['Low', 'Normal', 'High'];
-  const colors = ['green', 'orange', 'red'];
+  const options = ["Low", "Normal", "High"];
+  const colors = ["green", "orange", "red"];
   options.forEach((option, index) => {
     const op = document.createElement("option");
     op.classList = colors[index];
