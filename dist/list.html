@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Todo list</title>
+    <!-- Link for Font Awesome -->
+<script src="https://kit.fontawesome.com/e252d07dd4.js" crossorigin="anonymous"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
       rel="stylesheet"
@@ -17,6 +19,7 @@
 
     <div class="all-tasks">
       <h2 class="task-list-title">My Projects</h2>
+      <button class="btn delete gone" data-delete-list-button><i class="far fa-trash-alt delete fa-lg"></i></button>
       <ul class="task-list" data-lists>
         <!-- <li class="list-name active-list">Youtube</li> -->
         <!-- <li class="list-name">Work</li> -->
@@ -94,7 +97,7 @@
 
         <div class="delete-stuff">
           <button class="btn delete">Clear completed tasks</button>
-          <button class="btn delete">Delete list</button>
+          
         </div>
       </div>
     </div>

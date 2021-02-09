@@ -3,6 +3,8 @@ import "./list.scss";
 const listContainer = document.querySelector("[data-lists]");
 const newListForm = document.querySelector("[data-new-list-form]");
 const newListInput = document.querySelector("[data-new-list-input]");
+// const deleteListButton = document.querySelector("[data-delete-list-button]");
+const deleteListButton = document.querySelector(".gone");
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
@@ -14,6 +16,12 @@ listContainer.addEventListener("click", (e) => {
     selectedListId = e.target.dataset.listId;
     saveAndRender();
   }
+});
+
+deleteListButton.addEventListener("click", (e) => {
+  lists = lists.filter((list) => list.id !== selectedListId);
+  selectedListId = null;
+  saveAndRender();
 });
 
 newListForm.addEventListener("submit", (e) => {
@@ -50,6 +58,7 @@ function render() {
     if (list.id === selectedListId) {
       listElement.classList.add("active-list");
     }
+
     listContainer.append(listElement);
   });
 }
