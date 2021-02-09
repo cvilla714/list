@@ -52,8 +52,8 @@ function todoEdit() {
   project.setAttribute('type', 'hidden');
   project.setAttribute('id', 'projectId');
 
-  button.textContent = 'Update Todo';
-  button.className = 'btn btn-primary d-block';
+  button.textContent = 'Update To-do';
+  button.className = 'btn btn-warning d-block';
   button.setAttribute('id', 'editTodoBtn');
   button.setAttribute('type', 'button');
 

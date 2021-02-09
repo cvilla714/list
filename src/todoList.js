@@ -1,7 +1,8 @@
 const { format } = require('date-fns');
 
 function todoForm() {
-  const projectTitle = document.createElement('h4')
+  const projectTitle = document.createElement('h4');
+  const prorityTitle = document.createElement('h4');
   const projectSelection = document.createElement('select');
   const form = document.createElement('form');
   const title = document.createElement('input');
@@ -16,7 +17,10 @@ function todoForm() {
   const div = document.createElement('div');
 
   projectTitle.textContent = 'Select a project to attach the task';
-  projectTitle.className = 'w-75 mx-auto d-block pl-2';
+  projectTitle.className = 'mx-auto d-block pl-2';
+
+  prorityTitle.textContent = 'Select the prority';
+  prorityTitle.className = 'mx-auto d-block pl-2';
 
   heading.textContent = 'New To Do';
   heading.className = 'w-75 mx-auto d-block pl-5';
@@ -70,6 +74,7 @@ function todoForm() {
     title,
     desc,
     date,
+    prorityTitle,
     priority,
     button,
   );
