@@ -38,7 +38,7 @@ function todoForm() {
   date.className = 'form-control mb-3 w-75 mx-auto d-block';
   date.setAttribute('type', 'date');
   date.setAttribute('id', 'tDate');
-  date.setAttribute('min', format(new Date(), 'yyyy-MM-dd'));
+  date.setAttribute('min', format(new Date(), 'yyyy-dd-MM'));
 
   const options = ['Low', 'Normal', 'High'];
   options.forEach((option, index) => {

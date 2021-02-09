@@ -11,7 +11,7 @@ class Todo {
   ) {
     this.title = title;
     this.description = description;
-    this.date = format(new Date(date.replace(/-/g, ',')), 'dd-MM-yyyy');
+    this.date = format(new Date(date.replace(/-/g, ',')), 'yyyy-dd-MM');
     this.priority = priority;
     this.finished = finished;
     this.project = project;
