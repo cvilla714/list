@@ -1,5 +1,5 @@
 require("../dist/css/style.css");
-
+const { formatDistanceToNow } = require("date-fns");
 const Todo = require("./classTodo");
 const todoForm = require("./todoList");
 const editTodo = require("./todoEdit");
@@ -156,7 +156,7 @@ const updateTodo = () => {
   const todosArray = todoArrayOf(editElems.projectInput.value).todos;
   const currentTodo = findCurrentTodo(todosArray, editElems.todoIdInput.value);
   console.log(currentTodo);
-  currentTodo.date = editElems.dateInput.value;
+  currentTodo.date = formatDistanceToNow(new Date(editElems.dateInput.value), { addSuffix: true });
   currentTodo.description = editElems.descInput.value;
   currentTodo.priority = editElems.priorityInput.value;
   currentTodo.title = editElems.titleInput.value;
