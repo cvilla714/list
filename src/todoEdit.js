@@ -33,7 +33,7 @@ function todoEdit() {
   date.className = 'form-control mb-3 w-75 mx-auto d-block';
   date.setAttribute('type', 'date');
   date.setAttribute('id', 'editTDate');
-  date.setAttribute('min', format(new Date(), 'yyyy-MM-dd'));
+  date.setAttribute('min', format(new Date(), 'dd-MM-yyyy'));
 
   const options = ['Low', 'Normal', 'High'];
   const colors = ['green', 'orange', 'red'];

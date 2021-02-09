@@ -1,4 +1,4 @@
-require('../dist/css/style.css'); 
+require('../dist/css/style.css');
 
 const Todo = require('./classTodo');
 const todoForm = require('./todoList');
@@ -18,8 +18,8 @@ const row = document.createElement('div');
 const projectModal = document.createElement('button');
 const todoModal = document.createElement('button');
 
-mainTitle.textContent = 'To-do List App with JS'
-mainTitle.className = 'text-white mx-auto d-block mt-3 ml-3 mb-3'
+mainTitle.textContent = 'To-do List App with JS';
+mainTitle.className = 'text-white mx-auto d-block mt-3 ml-3 mb-3';
 
 projectModal.setAttribute('type', 'button');
 projectModal.className = 'project-modal-btn btn btn-primary mt-3 ml-3 mb-3';
@@ -56,6 +56,22 @@ allClose.forEach((close, index) => {
     modals[index].classList.remove('modal-bg-active');
   });
 });
+
+function restoreLocal() {
+  projects = JSON.parse(localStorage.getItem('projects'));
+  if (projects === null) {
+    projects = [];
+    createProject('default project');
+  } else {
+    resetRow();
+    projects.forEach((project) => {
+      checkboxId = 0;
+      const newProject = projectContainer(project.name);
+      row.appendChild(newProject);
+      renderTodos(project);
+    });
+  }
+}
 
 // Todo Form
 const todoTitle = document.querySelector('#tTitle');
@@ -101,8 +117,6 @@ function finishTodo(projectName, todo) {
   }
 }
 
-
-
 // Form to create a Project
 const projectName = document.querySelector('#projectName');
 const createProjectBtn = document.querySelector('#createProjectBtn');
@@ -119,7 +133,7 @@ function todoArrayOf(project) {
 }
 
 function findCurrentTodo(todos, todoId) {
-  const currentTodoIndex = todos.findIndex((obj) => obj.id == todoId);
+  const currentTodoIndex = todos.findIndex((obj) => obj.id === todoId);
   return todos[currentTodoIndex];
 }
 
@@ -206,22 +220,6 @@ const renderTodos = (project) => {
   });
   saveLocal();
 };
-
-function restoreLocal() {
-  projects = JSON.parse(localStorage.getItem('projects'));
-  if (projects === null) {
-    projects = [];
-    createProject('default project');
-  } else {
-    resetRow();
-    projects.forEach((project) => {
-      checkboxId = 0;
-      const newProject = projectContainer(project.name);
-      row.appendChild(newProject);
-      renderTodos(project);
-    });
-  }
-}
 
 // Edit a To-Do
 
