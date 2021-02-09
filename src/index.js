@@ -178,9 +178,9 @@ const renderTodos = (project) => {
     checkboxId += 1;
 
     if (todo.finished) {
-      li.innerHTML = `<input type='checkbox' id='${projectName}${checkboxId}' class='mr-2' checked><span class='${todo.priority.toLowerCase()} ml-1' id='span${projectName}${checkboxId}' style='text-decoration: line-through'>${todo.title} / ${todo.description} / ${todo.date}</span>`;
+      li.innerHTML = `<input type='checkbox' id='${projectName}${checkboxId}' class='mr-2 pl-2 ml-2' checked><span class='${todo.priority.toLowerCase()} ml-1' id='span${projectName}${checkboxId}' style='text-decoration: line-through'>${todo.title} / ${todo.description} / ${todo.date}</span>`;
     } else {
-      li.innerHTML = `<input type='checkbox' id='${projectName}${checkboxId}' class='me-3'><span class='${todo.priority.toLowerCase()}' id='span${projectName}${checkboxId}'>${todo.title} / ${todo.description} / ${todo.date}</span>`;
+      li.innerHTML = `<input type='checkbox' id='${projectName}${checkboxId}' class='mr-2 pl-2 ml-2'><span class='${todo.priority.toLowerCase()} ml-1' id='span${projectName}${checkboxId}'>${todo.title} / ${todo.description} / ${todo.date}</span>`;
     }
 
     todoList.appendChild(li);
@@ -206,7 +206,7 @@ function restoreLocal() {
   projects = JSON.parse(localStorage.getItem('projects'));
   if (projects === null) {
     projects = [];
-    createProject('default');
+    createProject('default project');
   } else {
     resetRow();
     projects.forEach((project) => {
