@@ -13,18 +13,23 @@ const projectNameArray = [];
 
 // Main Container
 const container = document.querySelector('.container');
+const mainTitle = document.createElement('h1');
 const row = document.createElement('div');
 const projectModal = document.createElement('button');
 const todoModal = document.createElement('button');
 
+mainTitle.textContent = 'To-do List App with JS'
+mainTitle.className = 'text-white mx-auto d-block mt-3 ml-3 mb-3'
+
 projectModal.setAttribute('type', 'button');
-projectModal.className = 'project-modal-btn btn btn-primary mt-3 ml-3';
+projectModal.className = 'project-modal-btn btn btn-primary mt-3 ml-3 mb-3';
 projectModal.textContent = 'Create Project';
 
 todoModal.setAttribute('type', 'button');
-todoModal.className = 'todo-modal-btn btn btn-secondary mt-3 ml-3';
+todoModal.className = 'todo-modal-btn btn btn-secondary mt-3 ml-3 mb-3';
 todoModal.textContent = 'Create To-do';
 
+container.append(mainTitle);
 container.append(projectModal, todoModal);
 container.appendChild(projectForm);
 container.appendChild(todoForm);
