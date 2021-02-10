@@ -1,3 +1,6 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable eqeqeq */
+/* eslint-disable max-len */
 require('../dist/css/style.css');
 const { formatDistanceToNow } = require('date-fns');
 const Todo = require('./classTodo');
@@ -155,7 +158,7 @@ createTodoBtn.addEventListener('click', createTodo);
 const updateTodo = () => {
   const todosArray = todoArrayOf(editElems.projectInput.value).todos;
   const currentTodo = findCurrentTodo(todosArray, editElems.todoIdInput.value);
-  console.log(currentTodo);
+  // console.log(currentTodo);
   currentTodo.date = formatDistanceToNow(new Date(editElems.dateInput.value), { addSuffix: true });
   currentTodo.description = editElems.descInput.value;
   currentTodo.priority = editElems.priorityInput.value;
