@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://rawcdn.githack.com/cvilla714/list/60a6c3c65e06b550d57db145ea057c1d7a1be771/dist/index.html)
+[Live Demo Link](https://rawcdn.githack.com/cvilla714/list/2d7d50834770fd5e9d7f2a3b5203a9db841d2e85/dist/index.html)
 
 ## Getting Started
 
