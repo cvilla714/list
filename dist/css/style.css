@@ -6,13 +6,16 @@ body {
 }
 input[type="text"],
 input[type="text"]:focus {
-  color: #fff;
+  color: rgb(0, 0, 0);
   border: none;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(255, 255, 255);
   max-width: 400px;
 }
 .todos li {
-  background: #423a6f;
+  background: #afa6ffc5;
+  margin-right: 10px;
+  margin-left: -5px;
+  padding-left: -15px;
 }
 .delete {
   cursor: pointer;
@@ -20,3 +23,82 @@ input[type="text"]:focus {
 .filtered {
   display: none !important;
 }
+
+.low {
+  color: green;
+}
+
+.medium {
+  color: orangered;
+}
+
+.high {
+  color: red;
+}
+
+.container {
+  max-width: 800px;
+}
+
+ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+li {
+  list-style: none;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  color: black;
+}
+
+.modal-bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-main {
+  background-color: rgb(104, 113, 241);
+  width: 30%;
+  height: 60%;
+  border-radius: 5px;
+  z-index: 1000;
+  position: relative;
+}
+
+.modal-main form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.modal-main form h5 {
+  font-size: 1.4em;
+}
+
+
