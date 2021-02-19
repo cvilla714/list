@@ -54,13 +54,45 @@ const addListListener = (e) => {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="row">
+      <div>
+        <div class="">
+          <form class="editControlInput1 text-center my-4">
+            <div class='row'>
+              <label class="text-primary">Add the title </label>
+              <input class="editform-control m-auto" type="text" name="add" id="editControlInputone" />${inputone.value}
+              <div class="mb-3">
+                <label for="ControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" id="ControlTextareaone" rows="3">${textarea.value}</textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="mb-3">
+                  <label for="ControlInput2" class="form-label">Due Date</label>
+                  <input type="date" class="form-control" id="thedate" paceholder="choose a date">${date.value}
+                </div>
+                <div class="mb-3">
+                  <label for="ControlTextarea3" class="form-label">Priority</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Chose the priority for the event</option>
+                    <option value="1">High</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Low</option>
+                    ${selection.value}
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary out" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary include">Save changes</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
+      </div>
   </div>
 </div>
 
@@ -68,7 +100,7 @@ const addListListener = (e) => {
 
   maintablerow.append(tabletitle, tabledescription, gettime, tableselection, editbutton);
   tome.append(maintablerow);
-
+  console.log(tome);
   mainform.reset();
   document.querySelector(".cierre").click();
 };
