@@ -120,13 +120,22 @@ const addListListener = (e) => {
   console.log(tome);
   mainform.reset();
   document.querySelector(".cierre").click();
+  editInfo();
 };
 function addlist() {
   mainform.removeEventListener("submit", addListListener);
   mainform.addEventListener("submit", addListListener);
 }
 
-export function editInfo() {
+// function editInfo() {
+// let edit = document.querySelector(`.table${alltodos}`);
+// edit.addEventListener("click", (e) => {
+// console.log(e.target);
+// });
+// console.log(edit);
+// }
+
+function editInfo() {
   const edit = document.querySelectorAll(".editbtn");
   edit.forEach((item) => {
     item.addEventListener("click", (e) => {
