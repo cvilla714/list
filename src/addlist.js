@@ -15,6 +15,7 @@ place.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     id = e.target.parentElement.getAttribute("data-id");
     addlist(e, id);
+    editInfo();
   }
 });
 const addListListener = (e) => {
@@ -120,7 +121,7 @@ const addListListener = (e) => {
   console.log(tome);
   mainform.reset();
   document.querySelector(".cierre").click();
-  editInfo();
+  // editInfo();
 };
 function addlist() {
   mainform.removeEventListener("submit", addListListener);
