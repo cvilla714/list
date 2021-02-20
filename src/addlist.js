@@ -1,3 +1,4 @@
+import { end } from "@popperjs/core";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const mainform = document.querySelector(".ControlInput1");
@@ -16,6 +17,7 @@ place.addEventListener("click", (e) => {
     id = e.target.parentElement.getAttribute("data-id");
     addlist(e, id);
     editInfo();
+    deleteTask();
   }
 });
 const addListListener = (e) => {
@@ -114,9 +116,17 @@ const addListListener = (e) => {
 </div>
 
     `;
+
+  const deletebutton = document.createElement("button");
+  deletebutton.innerHTML = `
+    <button type="button" class="btn btn-danger editbtn table${alltodos}">
+    <i class="fas fa-eraser"></i>
+    </button>
+    `;
+
   alltodos++;
 
-  maintablerow.append(tabletitle, tabledescription, gettime, tableselection, editbutton);
+  maintablerow.append(tabletitle, tabledescription, gettime, tableselection, editbutton, deletebutton);
   tome.append(maintablerow);
   console.log(tome);
   mainform.reset();
@@ -140,8 +150,42 @@ function editInfo() {
   const edit = document.querySelectorAll(".editbtn");
   edit.forEach((item) => {
     item.addEventListener("click", (e) => {
-      console.log(e.target);
+      console.log(e);
+
+      console.log(e.target.parentElement.parentElement.parentElement);
+      // console.log(e.target.parentElement.parentElement.parentElement.className);
+      // console.log(e.target.parentElement.classList);
+      const parentclass = e.target.parentElement.parentElement.parentElement.className;
+      const childclass = e.target.parentElement.classList;
+      console.log(parentclass, childclass);
+      if (childclass.contains(parentclass)) {
+        console.log("you have a match");
+        // item.remove();
+        // console.log("item removed");
+        // tasktoremove.remove();
+        end;
+      }
     });
   });
-  console.log(edit);
+  // console.log(edit);
+}
+
+function deleteTask() {
+  const edit = document.querySelectorAll(".editbtn");
+  edit.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      // console.log(e);
+      const tasktoremove = e.target.parentElement.parentElement.parentElement;
+      const parentclass = e.target.parentElement.parentElement.parentElement.className;
+      const childclass = e.target.parentElement.classList;
+      console.log(parentclass, childclass);
+      if (childclass.contains(parentclass)) {
+        console.log("you have a match");
+        // item.remove();
+        // console.log("item removed");
+        tasktoremove.remove();
+        end;
+      }
+    });
+  });
 }
