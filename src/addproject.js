@@ -19,6 +19,7 @@ const addtheproject = (item, id) => {
       <th scope="col">Date</th>
       <th scope="col">Priority</th>
       <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody class="${id}">
