@@ -16,9 +16,9 @@ place.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     id = e.target.parentElement.getAttribute("data-id");
     addlist(e, id);
-    editInfo();
-    deleteTask();
   }
+  editInfo();
+  deleteTask();
 });
 const addListListener = (e) => {
   e.preventDefault();
@@ -119,7 +119,7 @@ const addListListener = (e) => {
 
   const deletebutton = document.createElement("button");
   deletebutton.innerHTML = `
-    <button type="button" class="btn btn-danger editbtn table${alltodos}">
+    <button type="button" class="btn btn-danger deletebtn table${alltodos}">
     <i class="fas fa-eraser"></i>
     </button>
     `;
@@ -155,15 +155,16 @@ function editInfo() {
       console.log(e.target.parentElement.parentElement.parentElement);
       // console.log(e.target.parentElement.parentElement.parentElement.className);
       // console.log(e.target.parentElement.classList);
+      const tinfo = e.target.parentElement.parentElement.parentElement;
       const parentclass = e.target.parentElement.parentElement.parentElement.className;
       const childclass = e.target.parentElement.classList;
       console.log(parentclass, childclass);
       if (childclass.contains(parentclass)) {
         console.log("you have a match");
+
         // item.remove();
         // console.log("item removed");
         // tasktoremove.remove();
-        end;
       }
     });
   });
@@ -171,7 +172,7 @@ function editInfo() {
 }
 
 function deleteTask() {
-  const edit = document.querySelectorAll(".editbtn");
+  const edit = document.querySelectorAll(".deletebtn");
   edit.forEach((item) => {
     item.addEventListener("click", (e) => {
       // console.log(e);
