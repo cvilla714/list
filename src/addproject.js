@@ -10,7 +10,7 @@ const addtheproject = (item, id) => {
   </button>
   <i class="far fa-trash-alt delete"></i>
   </li>
-  <div class="">
+  
   <table class="table bg-light">
   <thead>
     <tr>
@@ -25,7 +25,7 @@ const addtheproject = (item, id) => {
   <tbody class="${id}">
   </tbody>
 </table>
-  </div>
+  
   `;
   place.innerHTML += html;
 };
