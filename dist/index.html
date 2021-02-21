@@ -11,19 +11,20 @@
   <title>Project Todo List</title>
 </head>
 
-<body class="container">
-  <div class="row">
-    <div class="col-12 additem">
-      <div class="project">
+<body>
+  <div class="container">
+  <!-- <div class="row"> -->
+    <!-- <div class="col-6 additem"> -->
+      <!-- <div class="project"> -->
         <h1 class="text-white mx-auto d-flex align-content-center">Please add your project</h1>
-        <div class="pro">
+        <!-- <div class="pro"> -->
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Please Add Your Project
           </button>
           <ul class="list-group projectos mx-auto text-light">
           </ul>
 
-          <!-- Modal -->
+          <!-- Modal for adding new projects -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -45,8 +46,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        <!-- </div> -->
+      <!-- </div> -->
 
       <!-- Modal for add the event -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -98,28 +99,29 @@
         </div>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 
 
-  <div class="col-12">
+  <!-- <div class="col-6"> -->
 
-    <div class="container">
-      <header class="text-center text-light my-4">
-        <h1 class="mb-4">Quick Todo List</h1>
-        <form class="search">
-          <input class="form-control m-auto" type="text" name="search" placeholder="search todos" />
-        </form>
-      </header>
-      <!--  -->
-      <ul class="list-group todos mx-auto text-light">
-      </ul>            
-      <form class="add text-center my-4" id="addthis">
-        <label class="text-light">Add a new todo...</label>
-        <input class="form-control m-auto" type="text" name="add" id="recipe" />
-      </form>
-    </div>
-  </div>
-  </div>
+      <div class="container">
+          <header class="text-center text-light my-4">
+            <h1 class="mb-4">Quick Todo List</h1>
+            <form class="search">
+              <input class="form-control m-auto" type="text" name="search" placeholder="search todos" />
+            </form>
+          </header>
+        <!--  -->
+         <ul class="list-group todos mx-auto text-light">
+         </ul>            
+         <form class="add text-center my-4" id="addthis">
+           <label class="text-light">Add a new todo...</label>
+           <input class="form-control m-auto" type="text" name="add" id="recipe" />
+         </form>
+      </div>
+    <!-- </div> -->
+  <!-- </div> -->
+</div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
