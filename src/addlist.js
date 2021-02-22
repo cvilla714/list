@@ -161,7 +161,10 @@ function editInfo() {
       console.log(parentclass, childclass);
       if (childclass.contains(parentclass)) {
         console.log("you have a match");
-
+        console.log(tinfo.childNodes);
+        tinfo.childNodes.forEach((child) => {
+          console.log(child.innerText);
+        });
         // item.remove();
         // console.log("item removed");
         // tasktoremove.remove();
