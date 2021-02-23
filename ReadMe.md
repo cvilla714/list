@@ -36,6 +36,13 @@
 **To look at the code woking please run this command `npm run start` this will open a new page in your webbrowser**
 **where you will see the app working**
 
+### Test
+
+**In order to run the test for the project you should install the dependencies `npm install` as well explained before and then run the next command to run all the test.**
+
+
+`npm run test`
+
 ## Authors
 
 👤 **Alejandro Toledo**
