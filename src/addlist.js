@@ -162,6 +162,11 @@ function editInfo() {
       if (childclass.contains(parentclass)) {
         console.log("you have a match");
         console.log(tinfo.childNodes);
+        const editTitle = tinfo.childNodes[0].innerHTML;
+        const editBody = tinfo.childNodes[1].innerHTML;
+        const editDate = tinfo.childNodes[2].data;
+        const editPrioriy = tinfo.childNodes[3].innerHTML;
+        console.log(editTitle, editBody, editDate, editPrioriy);
         tinfo.childNodes.forEach((child) => {
           console.log(child.innerText);
         });
