@@ -39,7 +39,6 @@ function todoForm() {
   date.className = 'form-control mb-3 w-75 mx-auto d-block';
   date.setAttribute('type', 'date');
   date.setAttribute('id', 'tDate');
-  // date.setAttribute('min', format(new Date(), 'yyyy-dd-MM'));
   date.setAttribute('min', formatDistanceToNow(new Date(), { addSuffix: true }));
 
   const options = ['Low', 'Normal', 'High'];
