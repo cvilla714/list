@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "testc": "jest --coverage",
+    "testwatch": "jest --watch *.js",
     "build": "webpack",
     "start": "webpack serve --open",
     "watch": "webpack --watch"
