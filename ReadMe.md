@@ -2,7 +2,9 @@
 
 # Project Todo-List
 
-> For this project we need to create a todo list
+> We Built a to-do list that will allow the user to insert new tasks 
+> into existing projects and also create new projects and assigned new tasks. 
+> It gives back to the user the number of days the event will take place and how long ago it happened
 
 ![screenshot](./app_screenshot.png)
 
@@ -10,6 +12,7 @@
 
 - Bootstrap
 - Javascript
+- Webpack
 
 ## Live Demo
 
